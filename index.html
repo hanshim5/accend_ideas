@@ -2,7 +2,7 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Accend Friends List</title>
+<title>Accend - Add Friends</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
@@ -12,17 +12,17 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: "#F97316", // Sunset Orange
+                        primary: "#06B6D4", // Electric Cyan
+                        accent: "#F6B17A", // Sunset Orange
                         "background-light": "#F8FAFC",
-                        "background-dark": "#0F172A", // Midnight Indigo
+                        "background-dark": "#0F172A",
                         "slate-navy": "#1E293B",
-                        "cool-grey": "#94A3B8"
                     },
                     fontFamily: {
                         display: ["Inter", "sans-serif"],
                     },
                     borderRadius: {
-                        DEFAULT: "1rem",
+                        DEFAULT: "12px",
                     },
                 },
             },
@@ -33,16 +33,9 @@
             font-family: 'Inter', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
-        .ios-blur {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
     </style>
 <style>
@@ -51,186 +44,120 @@
     }
   </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white antialiased">
-<div class="max-w-md mx-auto min-h-screen relative flex flex-col shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
-<div class="h-12 flex items-center justify-between px-8 pt-4 pb-2">
-<span class="text-xs font-semibold">9:41</span>
-<div class="flex items-center gap-1.5">
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center items-center min-h-screen antialiased">
+<div class="relative w-[390px] h-[844px] bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 rounded-[50px]">
+<div class="px-8 pt-4 flex justify-between items-center text-xs font-semibold">
+<span>9:41</span>
+<div class="flex gap-1">
 <span class="material-icons-round text-sm">signal_cellular_alt</span>
 <span class="material-icons-round text-sm">wifi</span>
 <span class="material-icons-round text-sm rotate-90">battery_full</span>
 </div>
 </div>
-<header class="px-6 py-4 flex flex-col gap-4">
-<div class="flex items-center justify-between">
-<h1 class="text-3xl font-bold tracking-tight">Friends</h1>
-<button class="bg-primary hover:opacity-90 transition-opacity text-white px-4 py-2 rounded-full flex items-center gap-1 text-sm font-semibold shadow-lg shadow-orange-500/20" onclick="toggleAddModal()">
-<span class="material-icons-round text-base">add</span>
-                    Add
-                </button>
+<div class="p-6 blur-sm pointer-events-none opacity-50">
+<header class="mb-6">
+<h1 class="text-2xl font-bold mb-4">Friends</h1>
+<div class="flex gap-2">
+<div class="relative flex-1">
+<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full pl-10 py-2 text-sm focus:ring-2 ring-primary" placeholder="Search friends" type="text"/>
 </div>
-<div class="relative group">
-<span class="material-icons-round absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
-<input class="w-full bg-slate-100 dark:bg-slate-navy border-none rounded-2xl py-3.5 pl-12 pr-4 text-sm focus:ring-2 focus:ring-primary transition-all placeholder:text-slate-400 dark:placeholder:text-cool-grey" placeholder="Search friends..." type="text"/>
+<button class="bg-slate-200 dark:bg-slate-800 px-4 py-2 rounded-full font-medium text-sm">Add +</button>
 </div>
 </header>
-<main class="flex-1 overflow-y-auto px-6 pb-24 hide-scrollbar">
-<div class="space-y-3">
-<div class="bg-white dark:bg-slate-navy p-4 rounded-3xl flex items-center justify-between group cursor-pointer transition-all hover:scale-[1.01] active:scale-[0.98] border border-slate-200 dark:border-slate-800 shadow-sm">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center relative">
-<span class="material-icons-round text-3xl text-slate-400 dark:text-slate-600">person</span>
-<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-navy rounded-full"></div>
+<div class="space-y-4">
+<template id="friend-row">
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
+<span class="material-icons-round text-slate-400">person</span>
 </div>
-<div class="flex flex-col">
-<span class="font-bold text-lg">Alex Rivera</span>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="text-xs text-cool-grey">Last practiced 2h ago</span>
-<div class="flex items-center gap-1 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-md">
-<span class="text-[10px]">🇺🇸</span>
-<span class="text-[10px] font-bold text-cool-grey">EN</span>
-</div>
-</div>
-</div>
-</div>
-<span class="material-icons-round text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition-all">chevron_right</span>
-</div>
-<div class="bg-white dark:bg-slate-navy p-4 rounded-3xl flex items-center justify-between group cursor-pointer transition-all border border-slate-200 dark:border-slate-800 shadow-sm">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-<span class="material-icons-round text-3xl text-slate-400 dark:text-slate-600">person</span>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-lg">Sarah Jenkins</span>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="text-xs text-cool-grey">Last practiced 5h ago</span>
-<div class="flex items-center gap-1 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-md">
-<span class="text-[10px]">🇫🇷</span>
-<span class="text-[10px] font-bold text-cool-grey">FR</span>
-</div>
-</div>
-</div>
+<div class="flex-1">
+<h3 class="font-semibold text-sm">Username</h3>
+<p class="text-xs text-slate-500">Last practiced 2h ago</p>
 </div>
 <span class="material-icons-round text-slate-400">chevron_right</span>
 </div>
-<div class="bg-white dark:bg-slate-navy p-4 rounded-3xl flex items-center justify-between group cursor-pointer transition-all border border-slate-200 dark:border-slate-800 shadow-sm">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center relative">
-<span class="material-icons-round text-3xl text-slate-400 dark:text-slate-600">person</span>
-<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-navy rounded-full"></div>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-lg">Kenji Tanaka</span>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="text-xs text-cool-grey">Last practiced 1d ago</span>
-<div class="flex items-center gap-1 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-md">
-<span class="text-[10px]">🇯🇵</span>
-<span class="text-[10px] font-bold text-cool-grey">JP</span>
-</div>
-</div>
-</div>
-</div>
+</template>
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center"><span class="material-icons-round text-slate-400">person</span></div>
+<div class="flex-1"><h3 class="font-semibold text-sm">Alex Rivera</h3><p class="text-xs text-slate-500">Last practiced 2h ago</p></div>
 <span class="material-icons-round text-slate-400">chevron_right</span>
 </div>
-<div class="bg-white dark:bg-slate-navy p-4 rounded-3xl flex items-center justify-between group cursor-pointer transition-all border border-slate-200 dark:border-slate-800 shadow-sm opacity-80">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-<span class="material-icons-round text-3xl text-slate-400 dark:text-slate-600">person</span>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-lg">Maria Gonzalez</span>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="text-xs text-cool-grey">Last practiced 3d ago</span>
-<div class="flex items-center gap-1 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-md">
-<span class="text-[10px]">🇪🇸</span>
-<span class="text-[10px] font-bold text-cool-grey">ES</span>
-</div>
-</div>
-</div>
-</div>
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center"><span class="material-icons-round text-slate-400">person</span></div>
+<div class="flex-1"><h3 class="font-semibold text-sm">Jordan Smith</h3><p class="text-xs text-slate-500">Last practiced 1d ago</p></div>
 <span class="material-icons-round text-slate-400">chevron_right</span>
 </div>
-<div class="bg-white dark:bg-slate-navy p-4 rounded-3xl flex items-center justify-between group cursor-pointer transition-all border border-slate-200 dark:border-slate-800 shadow-sm opacity-60">
-<div class="flex items-center gap-4">
-<div class="w-14 h-14 rounded-2xl bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-<span class="material-icons-round text-3xl text-slate-400 dark:text-slate-600">person</span>
-</div>
-<div class="flex flex-col">
-<span class="font-bold text-lg">Tom Hardy</span>
-<div class="flex items-center gap-2 mt-0.5">
-<span class="text-xs text-cool-grey">Last practiced 1w ago</span>
-<div class="flex items-center gap-1 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-800 rounded-md">
-<span class="text-[10px]">🇩🇪</span>
-<span class="text-[10px] font-bold text-cool-grey">DE</span>
-</div>
-</div>
-</div>
-</div>
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
+<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center"><span class="material-icons-round text-slate-400">person</span></div>
+<div class="flex-1"><h3 class="font-semibold text-sm">Taylor Swift</h3><p class="text-xs text-slate-500">Last practiced 5m ago</p></div>
 <span class="material-icons-round text-slate-400">chevron_right</span>
 </div>
 </div>
-</main>
-<nav class="absolute bottom-0 left-0 right-0 ios-blur bg-white/80 dark:bg-slate-navy/80 border-t border-slate-200 dark:border-slate-800 flex items-center justify-around pb-8 pt-3 px-4">
-<button class="flex flex-col items-center gap-1 text-primary">
-<span class="material-icons-round">group</span>
-<span class="text-[10px] font-medium">Friends</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-cool-grey">
-<span class="material-icons-round">home</span>
-<span class="text-[10px] font-medium">Home</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-cool-grey">
-<span class="material-icons-round">person_outline</span>
-<span class="text-[10px] font-medium">Profile</span>
-</button>
-</nav>
-<div class="hidden absolute inset-0 z-50 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-6" id="addModal">
-<div class="bg-white dark:bg-slate-800 w-full max-w-sm rounded-[2rem] p-6 shadow-2xl animate-in zoom-in-95 duration-200">
-<div class="flex items-center justify-between mb-6">
+</div>
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center p-6 z-20">
+<div class="w-full bg-slate-navy dark:bg-slate-navy text-white rounded-3xl p-6 shadow-2xl border border-slate-700/50 flex flex-col max-h-[70%]">
+<div class="flex justify-between items-center mb-6">
 <h2 class="text-xl font-bold">Add Friend</h2>
-<button class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center" onclick="toggleAddModal()">
-<span class="material-icons-round text-sm">close</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-icons-round text-slate-400">arrow_back</span>
 </button>
 </div>
-<div class="space-y-6">
-<div class="relative">
-<input class="w-full bg-slate-100 dark:bg-slate-700 border-none rounded-2xl py-3 px-4 pr-12 text-sm focus:ring-2 focus:ring-primary" placeholder="Enter username" type="text"/>
-<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-primary text-white rounded-xl flex items-center justify-center">
-<span class="material-icons-round text-sm">add</span>
+<div class="relative mb-8">
+<input class="w-full bg-slate-800/80 border border-slate-700 rounded-xl pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-primary focus:outline-none placeholder:text-slate-500" placeholder="Search by username..." type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-primary text-slate-900 rounded-lg hover:scale-95 transition-transform">
+<span class="material-icons-round text-lg">add</span>
 </button>
 </div>
-<div>
-<h3 class="text-xs font-bold uppercase tracking-wider text-cool-grey mb-3">Incoming Requests</h3>
+<div class="flex-1 overflow-y-auto">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Incoming Requests</h3>
 <div class="space-y-3">
-<div class="flex items-center justify-between bg-slate-50 dark:bg-slate-700/50 p-3 rounded-2xl">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-<span class="material-icons-round text-xl text-slate-400">person</span>
-</div>
-<span class="text-sm font-semibold">David_92</span>
-</div>
-<div class="flex gap-2">
-<button class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-500/10 text-red-500 flex items-center justify-center">
-<span class="material-icons-round text-lg">close</span>
-</button>
-<button class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-500/10 text-green-500 flex items-center justify-center">
-<span class="material-icons-round text-lg">check</span>
-</button>
-</div>
-</div>
-<div class="flex items-center justify-between bg-slate-50 dark:bg-slate-700/50 p-3 rounded-2xl">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-<span class="material-icons-round text-xl text-slate-400">person</span>
-</div>
-<span class="text-sm font-semibold">Luna_Star</span>
+<div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-2xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-xs font-bold">
+                                JD
+                            </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Justin_D</p>
 </div>
 <div class="flex gap-2">
-<button class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-500/10 text-red-500 flex items-center justify-center">
+<button class="w-8 h-8 rounded-lg border border-slate-700 text-accent flex items-center justify-center hover:bg-slate-700 transition-colors">
 <span class="material-icons-round text-lg">close</span>
 </button>
-<button class="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-500/10 text-green-500 flex items-center justify-center">
-<span class="material-icons-round text-lg">check</span>
+<button class="w-8 h-8 rounded-lg bg-primary text-slate-900 flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-icons-round text-lg font-bold">check</span>
+</button>
+</div>
+</div>
+<div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-2xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-orange-400 flex items-center justify-center text-xs font-bold">
+                                MS
+                            </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Mina_Song</p>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-lg border border-slate-700 text-accent flex items-center justify-center hover:bg-slate-700 transition-colors">
+<span class="material-icons-round text-lg">close</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-slate-900 flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-icons-round text-lg font-bold">check</span>
+</button>
+</div>
+</div>
+<div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-2xl flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-xs font-bold">
+                                KK
+                            </div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Kevin_King</p>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-lg border border-slate-700 text-accent flex items-center justify-center hover:bg-slate-700 transition-colors">
+<span class="material-icons-round text-lg">close</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-slate-900 flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-icons-round text-lg font-bold">check</span>
 </button>
 </div>
 </div>
@@ -238,19 +165,12 @@
 </div>
 </div>
 </div>
+<div class="absolute bottom-0 w-full bg-white/80 dark:bg-slate-900/80 glass-effect border-t border-slate-200 dark:border-slate-800 px-8 py-6 flex justify-between items-center opacity-30 pointer-events-none">
+<span class="material-icons-round text-primary text-3xl">people</span>
+<span class="material-icons-round text-slate-400 text-3xl">home</span>
+<span class="material-icons-round text-slate-400 text-3xl">person</span>
 </div>
+<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
 </div>
-<script>
-        function toggleAddModal() {
-            const modal = document.getElementById('addModal');
-            modal.classList.toggle('hidden');
-        }
-        // Close modal on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('addModal').classList.add('hidden');
-            }
-        });
-    </script>
 
 </body></html>
