@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Accend Dark Public Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#06B6D4", // Electric Cyan
+                        secondary: "#F6B17A", // Sunset Orange
+                        midnight: "#0F172A", // Midnight Indigo (Deep Background)
+                        slatenavy: "#1E293B", // Slate Navy (Card Background)
+                        coolgrey: "#94A3B8", // Cool Grey (Secondary Labels)
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #0F172A;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-midnight text-white min-h-screen pb-24">
+<header class="sticky top-0 z-10 bg-midnight/80 backdrop-blur-md px-6 py-6 flex items-center justify-between border-b border-slatenavy">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white">logout</span>
+</button>
+<h1 class="text-lg font-semibold tracking-tight text-white">Public Profile</h1>
+<div class="w-10"></div>
+</header>
+<main class="px-6 py-6 space-y-8 max-w-md mx-auto">
+<section class="flex items-start gap-6">
+<div class="relative flex-shrink-0">
+<div class="w-24 h-24 rounded-full border-2 border-primary p-1 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhdwHOFrWnT2gdV9bv4PVgnkVcrjVaCfbMthHqnJIsc54xq9LiCcA_NmVz4nINW02rBSAzkOMLE_8QPW4WdXPrutqCO8iv2GJtTvDcDOE8tbSkXgqhPg-1prPdlPpBP0naYN4CrIkFY6PIo1BrbzPnbf4c1zV5xP1cDsVGMryuu8iZUCVW3JuLnpflsteNIKhwATZUUBagEf_icM0T1WIhxhNMkJ2LiXt7-ydOsUA5cpnnp5mQt8dKf4DTVGpC1T-CDKCH90oDxn0"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-midnight text-[10px] font-bold px-2 py-0.5 rounded-full border-2 border-midnight">PRO</div>
+</div>
+<div class="space-y-3 flex-1">
+<div>
+<h2 class="text-xl font-bold text-white">Alex Rivera</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm fill-1">local_fire_department</span>
+<span class="text-sm font-medium text-coolgrey">124 Day Streak</span>
+</div>
+</div>
+<div class="bg-slatenavy p-3 rounded-xl">
+<p class="text-xs text-coolgrey leading-relaxed">
+                        I'm studying <span class="text-primary font-semibold">Spanish</span>. I currently know <span class="text-primary font-semibold">B1 Level</span>. I am doing this for <span class="text-primary font-semibold">Career Growth</span>.
+                    </p>
+</div>
+</div>
+</section>
+<section class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<div class="bg-slatenavy p-4 rounded-2xl">
+<ul class="space-y-2">
+<li class="flex justify-between items-center text-xs">
+<span class="text-coolgrey">Accuracy</span>
+<span class="font-bold text-primary">88%</span>
+</li>
+<li class="flex justify-between items-center text-xs">
+<span class="text-coolgrey">Lessons</span>
+<span class="font-bold text-white">442</span>
+</li>
+<li class="flex justify-between items-center text-xs">
+<span class="text-coolgrey">XP</span>
+<span class="font-bold text-white">12.4k</span>
+</li>
+</ul>
+</div>
+<div class="bg-slatenavy p-4 rounded-2xl flex flex-col items-center">
+<div class="relative w-16 h-16">
+<svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
+<path class="stroke-slate-700" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-width="3"></path>
+<path class="stroke-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white">75%</div>
+</div>
+<span class="text-[10px] text-coolgrey mt-2 uppercase tracking-wider font-semibold">Completion</span>
+</div>
+</div>
+<div class="bg-slatenavy p-4 rounded-2xl flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-coolgrey">Activity</span>
+<span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+</div>
+<div class="flex items-end justify-between h-24 gap-1">
+<div class="w-2 bg-slate-700 rounded-full h-1/2"></div>
+<div class="w-2 bg-primary/40 rounded-full h-3/4"></div>
+<div class="w-2 bg-primary/60 rounded-full h-2/3"></div>
+<div class="w-2 bg-primary/80 rounded-full h-5/6"></div>
+<div class="w-2 bg-primary rounded-full h-full"></div>
+</div>
+<div class="mt-2 text-[10px] text-coolgrey text-center font-medium">Last 5 Days</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-white">Achievements</h3>
+<button class="text-xs font-semibold text-primary uppercase tracking-wider">See All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">emoji_events</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Night Owl</span>
+</div>
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">star</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Top 1%</span>
+</div>
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2 opacity-50 grayscale">
+<div class="w-12 h-12 bg-midnight rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-coolgrey">lock</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Grandmaster</span>
+</div>
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Quick Learner</span>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-white">Specialized Focus</h3>
+<button class="text-xs font-semibold text-primary uppercase tracking-wider">See All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<div class="flex-shrink-0 w-32 h-20 bg-slatenavy rounded-xl overflow-hidden relative">
+<img alt="Category" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeRwMN2cMrqYL1MEnSzltb-NhVqLXG-tBu0J76HLmgsKuWsuegHksicuIM9bw0pR1JPSJCUP4dVfBInA7bhuT-LcywhTUCCP42R5Y_5_kQ2orEGZzKCnkiJ749PbtVL0Qw4wRHyHwkv0J5mtYGndFLGvGdGmGuE3q7jU0LB7TIMYmsdbXFUO84wF86bYJkeAZ5YHMmnvXwE5wCNhLlRPxdJsblrDi0iiYvHNbSN5D2nn_vKgiPY8zCnLip4nE8MHcSuzTmSIeuXg4"/>
+<div class="absolute inset-0 bg-midnight/40 flex items-center justify-center">
+<span class="text-white text-xs font-bold">Vocabulary</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 h-20 bg-slatenavy rounded-xl overflow-hidden relative">
+<img alt="Category" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh4RvIr4DlXSIz4CfeOkTwHKlAbQduEgg1KsMKls8a2CbWKlNpISKAU2WOYR5GZsF6niiP2ZLz0RBHHoXXuiSUos4cU265tazlezyWeZ2vRu8rtJzSBrDmTGGeAI2m0RnW3K0SRvpxWeHA_s2kvyFwTHB_z-p1giMjtn55sTG1i7SpQTCQ01lVFW3dTfGOQ0IQdQHioKjJ2bHEuoPfiQcdXrNnbXHSxOib4JMgsRaNZKIVVMXWFkx7D3dUcGLYry0qkaa2vA9t8Hg"/>
+<div class="absolute inset-0 bg-midnight/40 flex items-center justify-center">
+<span class="text-white text-xs font-bold">Grammar</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 h-20 bg-slatenavy rounded-xl overflow-hidden relative">
+<img alt="Category" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhBta5cHE6NVzJdx4U6fMSgBMw_SDEiyF3R5nhG4X14_lhj95zB1HNZTz_4pps4ecbK1GDDpwgI2DP85OdnSNZhq4HHJ7ZYq3on5iM1BILCS0jBShKyRANo7bBDeRAY5deb3eioP_LtAhGk0FJtaaN4VATY-Ke7V-M9UdEEbeMBuTyFTHo-toWNGfbvr4WM4bw_AcAcd8w80aGfYbGNyl1Cs01H_LoiQ52saer9ELBlWbIg3DaNB25fz1uTeFjxG8_c5srYPz0Pf4"/>
+<div class="absolute inset-0 bg-midnight/40 flex items-center justify-center">
+<span class="text-white text-xs font-bold">Slang</span>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-4 pb-12">
+<div class="border-t border-slatenavy pt-6">
+<h3 class="text-sm font-bold text-coolgrey uppercase tracking-widest mb-4">Account</h3>
+<div class="space-y-2">
+<button class="w-full flex items-center justify-between p-4 bg-slatenavy rounded-2xl group transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-coolgrey group-hover:text-primary transition-colors">person</span>
+<span class="font-medium text-white">Profile Details</span>
+</div>
+<span class="material-symbols-outlined text-coolgrey">chevron_right</span>
+</button>
+<div class="bg-slatenavy rounded-2xl overflow-hidden">
+<button class="w-full flex items-center justify-between p-4 group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">settings</span>
+<span class="font-medium text-white">Preferences</span>
+</div>
+<span class="material-symbols-outlined text-coolgrey transition-transform rotate-180">expand_more</span>
+</button>
+<div class="p-6 pt-0 space-y-6">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-coolgrey">Teaching Tone</label>
+<select class="bg-midnight border-none rounded-lg text-sm font-semibold focus:ring-primary text-white">
+<option>Neutral</option>
+<option>Supportive</option>
+<option>Strict</option>
+</select>
+</div>
+<div class="space-y-3">
+<label class="text-sm font-medium text-coolgrey block">Goals</label>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full">
+                                        Career <span class="material-symbols-outlined text-xs ml-1 cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full">
+                                        Travel <span class="material-symbols-outlined text-xs ml-1 cursor-pointer">close</span>
+</span>
+<button class="inline-flex items-center bg-midnight text-coolgrey text-xs font-bold px-3 py-1.5 rounded-full border border-dashed border-slate-700">
+                                        Add New +
+                                    </button>
+</div>
+</div>
+<button class="w-full bg-secondary text-midnight font-bold py-4 rounded-xl shadow-lg shadow-secondary/10 hover:brightness-110 transition-all active:scale-[0.98]">
+                                Save Changes
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<nav class="fixed bottom-0 inset-x-0 bg-midnight/90 backdrop-blur-lg border-t border-slatenavy px-8 py-4 flex items-center justify-between z-20">
+<button class="flex flex-col items-center gap-1 text-coolgrey">
+<span class="material-symbols-outlined">group</span>
+</button>
+<button class="w-14 h-14 bg-primary text-midnight rounded-full flex items-center justify-center -mt-10 shadow-xl shadow-primary/30 border-4 border-midnight">
+<span class="material-symbols-outlined text-2xl font-bold">home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+
+</body></html>
