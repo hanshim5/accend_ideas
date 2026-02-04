@@ -1,41 +1,44 @@
 <!DOCTYPE html>
+
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Accend - Add Friends</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
-<script>
+<title>Accend - Bold Segmented Navigation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        primary: "#06B6D4", // Electric Cyan
-                        accent: "#F6B17A", // Sunset Orange
-                        "background-light": "#F8FAFC",
-                        "background-dark": "#0F172A",
-                        "slate-navy": "#1E293B",
+                        "primary": "#07b6d5",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#0f2023",
+                        "muted-grey": "#64748b"
                     },
                     fontFamily: {
-                        display: ["Inter", "sans-serif"],
+                        "display": ["Lexend", "sans-serif"]
                     },
                     borderRadius: {
-                        DEFAULT: "12px",
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
                     },
                 },
             },
-        };
+        }
     </script>
 <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+        .active-tab-gradient {
+            background: linear-gradient(180deg, rgba(7, 182, 213, 0.2) 0%, rgba(7, 182, 213, 0) 100%);
+            border-top: 2px solid #07b6d5;
         }
-        .glass-effect {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        body {
+            -webkit-tap-highlight-color: transparent;
         }
     </style>
 <style>
@@ -44,133 +47,140 @@
     }
   </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 flex justify-center items-center min-h-screen antialiased">
-<div class="relative w-[390px] h-[844px] bg-background-light dark:bg-background-dark overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 rounded-[50px]">
-<div class="px-8 pt-4 flex justify-between items-center text-xs font-semibold">
-<span>9:41</span>
-<div class="flex gap-1">
-<span class="material-icons-round text-sm">signal_cellular_alt</span>
-<span class="material-icons-round text-sm">wifi</span>
-<span class="material-icons-round text-sm rotate-90">battery_full</span>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile portrait for language learner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKVV-Ua8eWtf5d_2L5HD211hhc9zh_M0Eaono4dtkXfKart7m13E-Go5tFxvO5lrxDBXRQrBe_a9HnRDqUyezyXsiTZMB5xWA2ejjAJ2epKa3cTgcM10vV_Kp7_RGVbMqok8_6rBT2VKGwR6lZUrvI6V_p0lW4N2p8XfATDC41_N29VydLbG0ZgqDZaE22pzCmL1t652-XcdymfgC7G3fR6zB9bbsahkKuC4gLymsGBo-iEo19pU_QUbgNVa6Lmj-hRZRVUWDwu7Y");'></div>
+<div>
+<p class="text-xs text-muted-grey font-medium uppercase tracking-wider">Welcome back</p>
+<h1 class="text-lg font-bold leading-none">Alex Rivera</h1>
 </div>
 </div>
-<div class="p-6 blur-sm pointer-events-none opacity-50">
-<header class="mb-6">
-<h1 class="text-2xl font-bold mb-4">Friends</h1>
-<div class="flex gap-2">
-<div class="relative flex-1">
-<span class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-full pl-10 py-2 text-sm focus:ring-2 ring-primary" placeholder="Search friends" type="text"/>
-</div>
-<button class="bg-slate-200 dark:bg-slate-800 px-4 py-2 rounded-full font-medium text-sm">Add +</button>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors relative">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-background-dark"></span>
+</button>
 </div>
 </header>
-<div class="space-y-4">
-<template id="friend-row">
-<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
-<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center">
-<span class="material-icons-round text-slate-400">person</span>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pb-32">
+<!-- Daily Goal Section -->
+<div class="p-4">
+<div class="bg-slate-100 dark:bg-[#183034] rounded-xl p-5 flex items-center justify-between shadow-sm border border-slate-200 dark:border-white/5">
+<div class="space-y-1">
+<h3 class="text-sm font-semibold text-muted-grey uppercase tracking-widest">Daily Goal</h3>
+<p class="text-2xl font-bold">75% <span class="text-sm font-normal text-muted-grey">Completed</span></p>
+<div class="w-48 h-2 bg-slate-200 dark:bg-slate-700 rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
 </div>
-<div class="flex-1">
-<h3 class="font-semibold text-sm">Username</h3>
-<p class="text-xs text-slate-500">Last practiced 2h ago</p>
 </div>
-<span class="material-icons-round text-slate-400">chevron_right</span>
-</div>
-</template>
-<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
-<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center"><span class="material-icons-round text-slate-400">person</span></div>
-<div class="flex-1"><h3 class="font-semibold text-sm">Alex Rivera</h3><p class="text-xs text-slate-500">Last practiced 2h ago</p></div>
-<span class="material-icons-round text-slate-400">chevron_right</span>
-</div>
-<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
-<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center"><span class="material-icons-round text-slate-400">person</span></div>
-<div class="flex-1"><h3 class="font-semibold text-sm">Jordan Smith</h3><p class="text-xs text-slate-500">Last practiced 1d ago</p></div>
-<span class="material-icons-round text-slate-400">chevron_right</span>
-</div>
-<div class="bg-white dark:bg-slate-800/50 p-4 rounded-2xl flex items-center gap-4 border border-slate-100 dark:border-slate-800">
-<div class="w-12 h-12 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center justify-center"><span class="material-icons-round text-slate-400">person</span></div>
-<div class="flex-1"><h3 class="font-semibold text-sm">Taylor Swift</h3><p class="text-xs text-slate-500">Last practiced 5m ago</p></div>
-<span class="material-icons-round text-slate-400">chevron_right</span>
+<div class="size-16 flex items-center justify-center rounded-full border-4 border-primary border-t-transparent -rotate-45">
+<span class="material-symbols-outlined text-primary text-3xl rotate-45">local_fire_department</span>
 </div>
 </div>
 </div>
-<div class="absolute inset-0 bg-black/40 z-10"></div>
-<div class="absolute inset-0 flex items-center justify-center p-6 z-20">
-<div class="w-full bg-slate-navy dark:bg-slate-navy text-white rounded-3xl p-6 shadow-2xl border border-slate-700/50 flex flex-col max-h-[70%]">
-<div class="flex justify-between items-center mb-6">
-<h2 class="text-xl font-bold">Add Friend</h2>
-<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
-<span class="material-icons-round text-slate-400">arrow_back</span>
+<!-- Section Header -->
+<div class="px-4 py-2 flex items-center justify-between">
+<h2 class="text-xl font-bold tracking-tight">Active Learning</h2>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<!-- Featured Lesson Card -->
+<div class="p-4 pt-2">
+<div class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-[#183034] shadow-lg border border-slate-200 dark:border-white/5">
+<div class="h-48 w-full bg-cover bg-center" data-alt="Abstract vibrant pattern for Spanish B2 course" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBEvwYSZhfGf7b7F0KiBu-gmNqgfFdVReA7x5qUm1TmZC0MAyrvtThL5ac-VkXzrKxTZzb_jGuI5KZ7RZ5lAFn1UW37l4mOMCSQ9x4nq8jSnVms2j2aCdo4nl-mafJ-CT6BIBItQx4OJTaA7PPNc1YBJy4-0hZNWPwLKInRRikUvEf7JGBnC7YAC9KRCarFv3hvNyn0LjNhi97_pI3vHDj1bTVgNGmMiyNbrwxZFvfaSvWJrdTmXB63ZyIaLHuD-1D4gjYiq2qugJU");'>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold">Spanish B2: Daily Practice</h3>
+<p class="text-muted-grey text-sm">Unit 4: Common Idioms &amp; Slang</p>
+</div>
+</div>
+<div class="flex items-center justify-between gap-4">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-[#183034] bg-slate-500" data-alt="Small avatar icon"></div>
+<div class="size-8 rounded-full border-2 border-[#183034] bg-slate-400" data-alt="Small avatar icon"></div>
+<div class="flex items-center justify-center size-8 rounded-full border-2 border-[#183034] bg-primary text-[10px] font-bold">+12</div>
+</div>
+<button class="bg-primary text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm shadow-md active:scale-95 transition-transform">
+                            Resume Session
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Categories Grid -->
+<div class="px-4 py-2">
+<h2 class="text-xl font-bold tracking-tight mb-4">Focus Areas</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
+<div class="size-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<div>
+<h4 class="font-bold text-base leading-tight">Vocabulary</h4>
+<p class="text-xs text-muted-grey">2,450 Words known</p>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
+<div class="size-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<div>
+<h4 class="font-bold text-base leading-tight">Grammar</h4>
+<p class="text-xs text-muted-grey">Subjunctive Mastered</p>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
+<div class="size-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
+<span class="material-symbols-outlined">mic</span>
+</div>
+<div>
+<h4 class="font-bold text-base leading-tight">Speaking</h4>
+<p class="text-xs text-muted-grey">Native Accuracy</p>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
+<div class="size-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
+<span class="material-symbols-outlined">hearing</span>
+</div>
+<div>
+<h4 class="font-bold text-base leading-tight">Listening</h4>
+<p class="text-xs text-muted-grey">Daily Podcast</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bold Segmented Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 safe-area-bottom pb-4">
+<div class="flex w-full h-16">
+<!-- Active Tab: Home -->
+<button class="flex-1 flex flex-col items-center justify-center active-tab-gradient relative group">
+<div class="transition-all duration-300 transform scale-110">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1, 'wght' 600;">home</span>
+</div>
+<span class="text-[10px] font-bold text-primary mt-1 uppercase tracking-wider">Home</span>
+</button>
+<!-- Inactive Tab: Lessons -->
+<button class="flex-1 flex flex-col items-center justify-center text-muted-grey hover:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+<span class="text-[10px] font-medium mt-1 uppercase tracking-wider">Lessons</span>
+</button>
+<!-- Inactive Tab: Practice -->
+<button class="flex-1 flex flex-col items-center justify-center text-muted-grey hover:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-2xl">fitness_center</span>
+<span class="text-[10px] font-medium mt-1 uppercase tracking-wider">Practice</span>
+</button>
+<!-- Inactive Tab: Profile -->
+<button class="flex-1 flex flex-col items-center justify-center text-muted-grey hover:text-slate-400 transition-colors">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+<span class="text-[10px] font-medium mt-1 uppercase tracking-wider">Profile</span>
 </button>
 </div>
-<div class="relative mb-8">
-<input class="w-full bg-slate-800/80 border border-slate-700 rounded-xl pl-4 pr-12 py-3 text-sm focus:ring-2 focus:ring-primary focus:outline-none placeholder:text-slate-500" placeholder="Search by username..." type="text"/>
-<button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-primary text-slate-900 rounded-lg hover:scale-95 transition-transform">
-<span class="material-icons-round text-lg">add</span>
-</button>
-</div>
-<div class="flex-1 overflow-y-auto">
-<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Incoming Requests</h3>
-<div class="space-y-3">
-<div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-2xl flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-xs font-bold">
-                                JD
-                            </div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-semibold truncate">Justin_D</p>
-</div>
-<div class="flex gap-2">
-<button class="w-8 h-8 rounded-lg border border-slate-700 text-accent flex items-center justify-center hover:bg-slate-700 transition-colors">
-<span class="material-icons-round text-lg">close</span>
-</button>
-<button class="w-8 h-8 rounded-lg bg-primary text-slate-900 flex items-center justify-center hover:opacity-90 transition-opacity">
-<span class="material-icons-round text-lg font-bold">check</span>
-</button>
-</div>
-</div>
-<div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-2xl flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-orange-400 flex items-center justify-center text-xs font-bold">
-                                MS
-                            </div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-semibold truncate">Mina_Song</p>
-</div>
-<div class="flex gap-2">
-<button class="w-8 h-8 rounded-lg border border-slate-700 text-accent flex items-center justify-center hover:bg-slate-700 transition-colors">
-<span class="material-icons-round text-lg">close</span>
-</button>
-<button class="w-8 h-8 rounded-lg bg-primary text-slate-900 flex items-center justify-center hover:opacity-90 transition-opacity">
-<span class="material-icons-round text-lg font-bold">check</span>
-</button>
-</div>
-</div>
-<div class="bg-slate-800/40 border border-slate-700/50 p-3 rounded-2xl flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-xs font-bold">
-                                KK
-                            </div>
-<div class="flex-1 min-w-0">
-<p class="text-sm font-semibold truncate">Kevin_King</p>
-</div>
-<div class="flex gap-2">
-<button class="w-8 h-8 rounded-lg border border-slate-700 text-accent flex items-center justify-center hover:bg-slate-700 transition-colors">
-<span class="material-icons-round text-lg">close</span>
-</button>
-<button class="w-8 h-8 rounded-lg bg-primary text-slate-900 flex items-center justify-center hover:opacity-90 transition-opacity">
-<span class="material-icons-round text-lg font-bold">check</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="absolute bottom-0 w-full bg-white/80 dark:bg-slate-900/80 glass-effect border-t border-slate-200 dark:border-slate-800 px-8 py-6 flex justify-between items-center opacity-30 pointer-events-none">
-<span class="material-icons-round text-primary text-3xl">people</span>
-<span class="material-icons-round text-slate-400 text-3xl">home</span>
-<span class="material-icons-round text-slate-400 text-3xl">person</span>
-</div>
-<div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-slate-300 dark:bg-slate-700 rounded-full"></div>
-</div>
-
+</nav>
+<!-- Visual spacer for bottom nav -->
+<div class="h-16"></div>
 </body></html>
