@@ -1,186 +1,240 @@
-<!DOCTYPE html>
+<html class="dark" lang="en"><head><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-midnight text-white min-h-screen pb-24">```html
 
-<html class="dark" lang="en"><head>
+
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Accend - Bold Segmented Navigation</title>
+<title>Accend Public Profile - Simplified Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<script>
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#07b6d5",
-                        "background-light": "#f5f8f8",
-                        "background-dark": "#0f2023",
-                        "muted-grey": "#64748b"
+                        primary: "#06B6D4", // Electric Cyan
+                        secondary: "#F6B17A", // Sunset Orange
+                        midnight: "#0F172A", // Midnight Indigo (Deep Background)
+                        slatenavy: "#1E293B", // Slate Navy (Card Background)
+                        coolgrey: "#94A3B8", // Cool Grey (Secondary Labels)
                     },
                     fontFamily: {
-                        "display": ["Lexend", "sans-serif"]
+                        display: ["Inter", "sans-serif"],
                     },
                     borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
+                        DEFAULT: "12px",
                     },
                 },
             },
-        }
+        };
     </script>
-<style>
-        .active-tab-gradient {
-            background: linear-gradient(180deg, rgba(7, 182, 213, 0.2) 0%, rgba(7, 182, 213, 0) 100%);
-            border-top: 2px solid #07b6d5;
-        }
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         body {
-            -webkit-tap-highlight-color: transparent;
+            min-height: max(884px, 100dvh);
+            background-color: #0F172A;
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white min-h-screen flex flex-col">
-<!-- Top App Bar -->
-<header class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-4 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="size-10 rounded-full bg-cover bg-center border-2 border-primary/20" data-alt="User profile portrait for language learner" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKVV-Ua8eWtf5d_2L5HD211hhc9zh_M0Eaono4dtkXfKart7m13E-Go5tFxvO5lrxDBXRQrBe_a9HnRDqUyezyXsiTZMB5xWA2ejjAJ2epKa3cTgcM10vV_Kp7_RGVbMqok8_6rBT2VKGwR6lZUrvI6V_p0lW4N2p8XfATDC41_N29VydLbG0ZgqDZaE22pzCmL1t652-XcdymfgC7G3fR6zB9bbsahkKuC4gLymsGBo-iEo19pU_QUbgNVa6Lmj-hRZRVUWDwu7Y");'></div>
-<div>
-<p class="text-xs text-muted-grey font-medium uppercase tracking-wider">Welcome back</p>
-<h1 class="text-lg font-bold leading-none">Alex Rivera</h1>
-</div>
-</div>
-<div class="flex items-center gap-2">
-<button class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors relative">
-<span class="material-symbols-outlined text-2xl">notifications</span>
-<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-background-dark"></span>
+
+
+<header class="sticky top-0 z-10 bg-midnight/80 backdrop-blur-md px-6 py-6 flex items-center justify-between border-b border-slatenavy">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-white">logout</span>
 </button>
-</div>
+<h1 class="text-lg font-semibold tracking-tight text-white uppercase tracking-[0.1em]">Public Profile</h1>
+<div class="w-10"></div>
 </header>
-<!-- Main Content Area -->
-<main class="flex-1 overflow-y-auto pb-32">
-<!-- Daily Goal Section -->
-<div class="p-4">
-<div class="bg-slate-100 dark:bg-[#183034] rounded-xl p-5 flex items-center justify-between shadow-sm border border-slate-200 dark:border-white/5">
-<div class="space-y-1">
-<h3 class="text-sm font-semibold text-muted-grey uppercase tracking-widest">Daily Goal</h3>
-<p class="text-2xl font-bold">75% <span class="text-sm font-normal text-muted-grey">Completed</span></p>
-<div class="w-48 h-2 bg-slate-200 dark:bg-slate-700 rounded-full mt-2 overflow-hidden">
-<div class="h-full bg-primary w-3/4 rounded-full"></div>
+<main class="px-6 py-6 space-y-8 max-w-md mx-auto">
+<section class="flex items-start gap-6">
+<div class="relative flex-shrink-0">
+<div class="w-24 h-24 rounded-full border-2 border-primary p-1 shadow-[0_0_15px_rgba(6,182,212,0.3)]">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhdwHOFrWnT2gdV9bv4PVgnkVcrjVaCfbMthHqnJIsc54xq9LiCcA_NmVz4nINW02rBSAzkOMLE_8QPW4WdXPrutqCO8iv2GJtTvDcDOE8tbSkXgqhPg-1prPdlPpBP0naYN4CrIkFY6PIo1BrbzPnbf4c1zV5xP1cDsVGMryuu8iZUCVW3JuLnpflsteNIKhwATZUUBagEf_icM0T1WIhxhNMkJ2LiXt7-ydOsUA5cpnnp5mQt8dKf4DTVGpC1T-CDKCH90oDxn0"/>
 </div>
+<div class="absolute -bottom-1 -right-1 bg-primary text-midnight text-[10px] font-bold px-2 py-0.5 rounded-full border-2 border-midnight">PRO</div>
 </div>
-<div class="size-16 flex items-center justify-center rounded-full border-4 border-primary border-t-transparent -rotate-45">
-<span class="material-symbols-outlined text-primary text-3xl rotate-45">local_fire_department</span>
-</div>
-</div>
-</div>
-<!-- Section Header -->
-<div class="px-4 py-2 flex items-center justify-between">
-<h2 class="text-xl font-bold tracking-tight">Active Learning</h2>
-<button class="text-primary text-sm font-semibold">View All</button>
-</div>
-<!-- Featured Lesson Card -->
-<div class="p-4 pt-2">
-<div class="group relative overflow-hidden rounded-xl bg-slate-100 dark:bg-[#183034] shadow-lg border border-slate-200 dark:border-white/5">
-<div class="h-48 w-full bg-cover bg-center" data-alt="Abstract vibrant pattern for Spanish B2 course" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBEvwYSZhfGf7b7F0KiBu-gmNqgfFdVReA7x5qUm1TmZC0MAyrvtThL5ac-VkXzrKxTZzb_jGuI5KZ7RZ5lAFn1UW37l4mOMCSQ9x4nq8jSnVms2j2aCdo4nl-mafJ-CT6BIBItQx4OJTaA7PPNc1YBJy4-0hZNWPwLKInRRikUvEf7JGBnC7YAC9KRCarFv3hvNyn0LjNhi97_pI3vHDj1bTVgNGmMiyNbrwxZFvfaSvWJrdTmXB63ZyIaLHuD-1D4gjYiq2qugJU");'>
-</div>
-<div class="p-5">
-<div class="flex justify-between items-start mb-4">
+<div class="space-y-3 flex-1">
 <div>
-<h3 class="text-xl font-bold">Spanish B2: Daily Practice</h3>
-<p class="text-muted-grey text-sm">Unit 4: Common Idioms &amp; Slang</p>
+<h2 class="text-xl font-bold text-white tracking-tight">Alex Rivera</h2>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm fill-1">local_fire_department</span>
+<span class="text-sm font-medium text-coolgrey">124 Day Streak</span>
 </div>
 </div>
-<div class="flex items-center justify-between gap-4">
-<div class="flex -space-x-2">
-<div class="size-8 rounded-full border-2 border-[#183034] bg-slate-500" data-alt="Small avatar icon"></div>
-<div class="size-8 rounded-full border-2 border-[#183034] bg-slate-400" data-alt="Small avatar icon"></div>
-<div class="flex items-center justify-center size-8 rounded-full border-2 border-[#183034] bg-primary text-[10px] font-bold">+12</div>
-</div>
-<button class="bg-primary text-background-dark px-6 py-2.5 rounded-lg font-bold text-sm shadow-md active:scale-95 transition-transform">
-                            Resume Session
-                        </button>
+<div class="bg-slatenavy/50 p-3 rounded-xl border border-white/5">
+<p class="text-xs text-coolgrey leading-relaxed">
+                        I'm studying <span class="text-primary font-semibold">Spanish</span>. I currently know <span class="text-primary font-semibold">B1 Level</span>. I am doing this for <span class="text-primary font-semibold">Career Growth</span>.
+                    </p>
 </div>
 </div>
-</div>
-</div>
-<!-- Categories Grid -->
-<div class="px-4 py-2">
-<h2 class="text-xl font-bold tracking-tight mb-4">Focus Areas</h2>
-<div class="grid grid-cols-2 gap-4">
-<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
-<div class="size-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-500">
-<span class="material-symbols-outlined">auto_stories</span>
+</section>
+<section class="grid grid-cols-1 gap-4">
+<div class="bg-slatenavy p-5 rounded-3xl border border-white/5 flex items-center justify-between">
+<div class="space-y-4 flex-1">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">target</span>
 </div>
 <div>
-<h4 class="font-bold text-base leading-tight">Vocabulary</h4>
-<p class="text-xs text-muted-grey">2,450 Words known</p>
+<span class="block text-2xl font-bold text-white">88%</span>
+<span class="block text-[10px] text-coolgrey uppercase font-bold tracking-wider">Overall Accuracy</span>
 </div>
 </div>
-<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
-<div class="size-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
-<span class="material-symbols-outlined">architecture</span>
+<div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
+<div>
+<span class="block text-lg font-bold text-white">442</span>
+<span class="block text-[10px] text-coolgrey uppercase font-bold tracking-wider">Lessons</span>
 </div>
 <div>
-<h4 class="font-bold text-base leading-tight">Grammar</h4>
-<p class="text-xs text-muted-grey">Subjunctive Mastered</p>
-</div>
-</div>
-<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
-<div class="size-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500">
-<span class="material-symbols-outlined">mic</span>
-</div>
-<div>
-<h4 class="font-bold text-base leading-tight">Speaking</h4>
-<p class="text-xs text-muted-grey">Native Accuracy</p>
-</div>
-</div>
-<div class="bg-slate-100 dark:bg-[#183034] p-4 rounded-xl border border-slate-200 dark:border-white/5 flex flex-col gap-3">
-<div class="size-10 rounded-lg bg-green-500/10 flex items-center justify-center text-green-500">
-<span class="material-symbols-outlined">hearing</span>
-</div>
-<div>
-<h4 class="font-bold text-base leading-tight">Listening</h4>
-<p class="text-xs text-muted-grey">Daily Podcast</p>
+<span class="block text-lg font-bold text-white">12.4k</span>
+<span class="block text-[10px] text-coolgrey uppercase font-bold tracking-wider">Total XP</span>
 </div>
 </div>
 </div>
+<div class="w-px h-24 bg-white/5 mx-4"></div>
+<div class="flex-1 flex flex-col justify-between h-full min-h-[110px]">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-coolgrey uppercase tracking-wider">Activity</span>
+<span class="material-symbols-outlined text-primary text-lg">trending_up</span>
 </div>
+<div class="flex items-end justify-between h-14 gap-1.5 px-1">
+<div class="flex-1 bg-white/10 rounded-full h-1/2"></div>
+<div class="flex-1 bg-primary/30 rounded-full h-3/4"></div>
+<div class="flex-1 bg-primary/50 rounded-full h-2/3"></div>
+<div class="flex-1 bg-primary/70 rounded-full h-5/6"></div>
+<div class="flex-1 bg-primary rounded-full h-full"></div>
+</div>
+<div class="text-[9px] text-coolgrey text-center font-bold uppercase tracking-tighter mt-2">Last 5 Days</div>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-white tracking-tight">Achievements</h3>
+<button class="text-xs font-semibold text-primary uppercase tracking-wider">See All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">emoji_events</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Night Owl</span>
+</div>
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">star</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Top 1%</span>
+</div>
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2 opacity-50 border border-white/5">
+<div class="w-12 h-12 bg-midnight/50 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-coolgrey">lock</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Grandmaster</span>
+</div>
+<div class="flex-shrink-0 w-24 h-28 bg-slatenavy rounded-2xl flex flex-col items-center justify-center gap-2 border border-white/5">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<span class="text-[10px] font-bold text-center px-2 text-white">Quick Learner</span>
+</div>
+</div>
+</section>
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-white tracking-tight">Specialized Focus</h3>
+<button class="text-xs font-semibold text-primary uppercase tracking-wider">See All</button>
+</div>
+<div class="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+<div class="flex-shrink-0 w-32 h-20 bg-slatenavy rounded-xl overflow-hidden relative border border-white/5">
+<img alt="Category" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeRwMN2cMrqYL1MEnSzltb-NhVqLXG-tBu0J76HLmgsKuWsuegHksicuIM9bw0pR1JPSJCUP4dVfBInA7bhuT-LcywhTUCCP42R5Y_5_kQ2orEGZzKCnkiJ749PbtVL0Qw4wRHyHwkv0J5mtYGndFLGvGdGmGuE3q7jU0LB7TIMYmsdbXFUO84wF86bYJkeAZ5YHMmnvXwE5wCNhLlRPxdJsblrDi0iiYvHNbSN5D2nn_vKgiPY8zCnLip4nE8MHcSuzTmSIeuXg4"/>
+<div class="absolute inset-0 bg-midnight/40 flex items-center justify-center">
+<span class="text-white text-xs font-bold">Vocabulary</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 h-20 bg-slatenavy rounded-xl overflow-hidden relative border border-white/5">
+<img alt="Category" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh4RvIr4DlXSIz4CfeOkTwHKlAbQduEgg1KsMKls8a2CbWKlNpISKAU2WOYR5GZsF6niiP2ZLz0RBHHoXXuiSUos4cU265tazlezyWeZ2vRu8rtJzSBrDmTGGeAI2m0RnW3K0SRvpxWeHA_s2kvyFwTHB_z-p1giMjtn55sTG1i7SpQTCQ01lVFW3dTfGOQ0IQdQHioKjJ2bHEuoPfiQcdXrNnbXHSxOib4JMgsRaNZKIVVMXWFkx7D3dUcGLYry0qkaa2vA9t8Hg"/>
+<div class="absolute inset-0 bg-midnight/40 flex items-center justify-center">
+<span class="text-white text-xs font-bold">Grammar</span>
+</div>
+</div>
+<div class="flex-shrink-0 w-32 h-20 bg-slatenavy rounded-xl overflow-hidden relative border border-white/5">
+<img alt="Category" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhBta5cHE6NVzJdx4U6fMSgBMw_SDEiyF3R5nhG4X14_lhj95zB1HNZTz_4pps4ecbK1GDDpwgI2DP85OdnSNZhq4HHJ7ZYq3on5iM1BILCS0jBShKyRANo7bBDeRAY5deb3eioP_LtAhGk0FJtaaN4VATY-Ke7V-M9UdEEbeMBuTyFTHo-toWNGfbvr4WM4bw_AcAcd8w80aGfYbGNyl1Cs01H_LoiQ52saer9ELBlWbIg3DaNB25fz1uTeFjxG8_c5srYPz0Pf4"/>
+<div class="absolute inset-0 bg-midnight/40 flex items-center justify-center">
+<span class="text-white text-xs font-bold">Slang</span>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-4 pb-12">
+<div class="border-t border-slatenavy pt-6">
+<h3 class="text-[10px] font-bold text-coolgrey uppercase tracking-[0.2em] mb-4">Account</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-4 bg-slatenavy rounded-2xl border border-white/5 group transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-coolgrey group-hover:text-primary transition-colors">person</span>
+<span class="font-medium text-white">Profile Details</span>
+</div>
+<span class="material-symbols-outlined text-coolgrey">chevron_right</span>
+</button>
+<div class="bg-slatenavy rounded-2xl overflow-hidden border border-white/5">
+<button class="w-full flex items-center justify-between p-4 group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">settings</span>
+<span class="font-medium text-white">Preferences</span>
+</div>
+<span class="material-symbols-outlined text-coolgrey transition-transform rotate-180">expand_more</span>
+</button>
+<div class="px-4 pb-6 space-y-6">
+<div class="flex items-center justify-between">
+<label class="text-sm font-medium text-coolgrey">Teaching Tone</label>
+<select class="bg-midnight border-white/10 rounded-lg text-sm font-semibold focus:ring-primary text-white">
+<option>Neutral</option>
+<option>Supportive</option>
+<option>Strict</option>
+</select>
+</div>
+<div class="space-y-3">
+<label class="text-sm font-medium text-coolgrey block">Goals</label>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full border border-primary/20">
+                                        Career <span class="material-symbols-outlined text-xs ml-1 cursor-pointer">close</span>
+</span>
+<span class="inline-flex items-center bg-primary/10 text-primary text-xs font-bold px-3 py-1.5 rounded-full border border-primary/20">
+                                        Travel <span class="material-symbols-outlined text-xs ml-1 cursor-pointer">close</span>
+</span>
+<button class="inline-flex items-center bg-midnight text-coolgrey text-xs font-bold px-3 py-1.5 rounded-full border border-dashed border-slate-700">
+                                        Add New +
+                                    </button>
+</div>
+</div>
+<button class="w-full bg-secondary text-midnight font-bold py-4 rounded-xl shadow-lg shadow-secondary/10 hover:brightness-110 transition-all active:scale-[0.98]">
+                                Save Changes
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
 </main>
-<!-- Bold Segmented Navigation Bar -->
-<nav class="fixed bottom-0 left-0 right-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-xl border-t border-slate-200 dark:border-white/10 safe-area-bottom pb-4">
-<div class="flex w-full h-16">
-<!-- Active Tab: Home -->
-<button class="flex-1 flex flex-col items-center justify-center active-tab-gradient relative group">
-<div class="transition-all duration-300 transform scale-110">
-<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1, 'wght' 600;">home</span>
-</div>
-<span class="text-[10px] font-bold text-primary mt-1 uppercase tracking-wider">Home</span>
+<nav class="fixed bottom-6 left-6 right-6 h-16 bg-midnight/80 backdrop-blur-xl border border-white/10 rounded-full px-8 flex items-center justify-between z-20 shadow-2xl">
+<button class="flex flex-col items-center gap-1 text-coolgrey hover:text-white transition-colors">
+<span class="material-symbols-outlined">group</span>
 </button>
-<!-- Inactive Tab: Lessons -->
-<button class="flex-1 flex flex-col items-center justify-center text-muted-grey hover:text-slate-400 transition-colors">
-<span class="material-symbols-outlined text-2xl">menu_book</span>
-<span class="text-[10px] font-medium mt-1 uppercase tracking-wider">Lessons</span>
+<button class="w-14 h-14 bg-primary text-midnight rounded-full flex items-center justify-center -mt-10 shadow-xl shadow-primary/30 border-4 border-midnight transition-transform active:scale-95">
+<span class="material-symbols-outlined text-2xl font-bold">home</span>
 </button>
-<!-- Inactive Tab: Practice -->
-<button class="flex-1 flex flex-col items-center justify-center text-muted-grey hover:text-slate-400 transition-colors">
-<span class="material-symbols-outlined text-2xl">fitness_center</span>
-<span class="text-[10px] font-medium mt-1 uppercase tracking-wider">Practice</span>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">person</span>
 </button>
-<!-- Inactive Tab: Profile -->
-<button class="flex-1 flex flex-col items-center justify-center text-muted-grey hover:text-slate-400 transition-colors">
-<span class="material-symbols-outlined text-2xl">account_circle</span>
-<span class="text-[10px] font-medium mt-1 uppercase tracking-wider">Profile</span>
-</button>
-</div>
 </nav>
-<!-- Visual spacer for bottom nav -->
-<div class="h-16"></div>
+
 </body></html>
